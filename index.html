@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-image: url("{% static 'images/b3.jpeg' %}");
+    }
+
+        .container {
+            background-color: rgb(238, 247, 247);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+
+
+        h2{
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        form {
+            margin-top: 50px;
+        }
+
+        input[type="file"] {
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        span{
+            color: red;
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Image for Classification</h2>
+        <form method="post" action="{% url 'predictImage' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="filePath" accept="image/*" required>
+            <input type="submit" value="Upload">
+        </form>
+        {% if filePathName %}
+        <h2>The classification of the image</h2>
+        {% if predictedLabel == 0 %}
+            <p>Bleached coral: This coral has lost its vibrant colors due to stress or environmental changes. Bleached coral is often a sign of unhealthy marine conditions.</p>
+        {% else %}
+            <p>Healthy coral: This coral is in good condition, with vibrant colors and no signs of stress or disease.</p>
+            
+        {% endif %}
+    {% endif %}
+    </div>
+    <div id="background-image"></div> 
+<!-- </body>
+<script>
+    // JavaScript function to change background image based on predicted label
+    function changeBackgroundImage(predictedLabel) {
+        var backgroundImageDiv = document.getElementById('background-image');
+        var imageUrl = '';
+
+        // Determine the background image URL based on the predicted label
+        if (predictedLabel === 'C130') {
+            imageUrl = '{% static "images/air1.jpg" %}';
+        } else if (predictedLabel === 'JAS39') {
+            imageUrl = '{% static "images/jas39-background.jpg" %}';
+        } else if (predictedLabel === 'Mig31') {
+            imageUrl = '{% static "images/m3.jpeg" %}';
+        } else if (predictedLabel === 'P3') {
+            imageUrl = '{% static "images/p3-background.jpg" %}';
+        } else if (predictedLabel === 'Rafale') {
+            imageUrl = '{% static "images/rafale-background.jpg" %}';
+        }
+
+        // Set the background image of the background-image div
+        backgroundImageDiv.style.backgroundImage = 'url("' + imageUrl + '")';
+    }
+
+    // Call the function with the predicted label when the page loads
+    window.onload = function() {
+        var predictedLabel = '{{ predictedLabel }}'; // Get the predicted label from Django context
+        changeBackgroundImage(predictedLabel);
+    };
+</script> -->
+
+
+</html>

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOTING SYSTEM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'images/b1.jpg' %}?v=3");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            color: #fff; /* Text color on the image */
+        }
+
+        nav {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .content {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 50px auto; /* Center the content */
+        }
+
+        .content h2,
+        .content p {
+            color: #fff; /* Text color within the content */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Tamil Nadu Voting Election - A Crucial Event for Democracy</h2>
+        <p>The Tamil Nadu voting election is a significant event that plays a crucial role in shaping the future of the state. As citizens, it is our responsibility to actively participate in the democratic process and make informed decisions.</p>
+
+        <p>This year's election brings forth several important issues and challenges that the people of Tamil Nadu must consider before casting their votes. From economic policies to social welfare, each candidate and party has a unique stance on how to address the pressing matters facing the state.</p>
+
+        <p>It is essential for voters to stay informed about the candidates, their agendas, and the overall political landscape. By doing so, we contribute to the democratic process and help build a better future for Tamil Nadu.</p>
+
+        <p>Exercise your right to vote and make a difference in the democratic fabric of our society. Stay tuned for updates and coverage on the Tamil Nadu voting election as we approach the election day.</p>
+    </div>
+</body>
+</html>
+{% endblock content %}
